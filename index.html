@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>光学论文 · 8 色标记规则</title>
+  <meta name="description" content="用于阅读 optics / photonics / metasurface 论文的固定 8 色高亮规则。" />
+  <style>
+    :root{
+      --bg:#f7f8fa;
+      --card:#ffffff;
+      --text:#16181d;
+      --muted:#68707d;
+      --line:#e6e8ec;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+      line-height:1.6;
+    }
+    main{
+      width:min(920px,calc(100% - 32px));
+      margin:64px auto;
+    }
+    header{margin-bottom:28px}
+    h1{
+      margin:0 0 10px;
+      font-size:clamp(28px,4vw,40px);
+      letter-spacing:-0.02em;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .note{
+      margin:20px 0 26px;
+      padding:14px 16px;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:14px;
+    }
+    .table-wrap{
+      overflow-x:auto;
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:680px;
+    }
+    th,td{
+      padding:16px 18px;
+      text-align:left;
+      vertical-align:middle;
+      border-bottom:1px solid var(--line);
+    }
+    tr:last-child td{border-bottom:0}
+    th{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:600;
+      background:#fbfbfc;
+    }
+    td{font-size:15px}
+    .color{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+      font-weight:600;
+    }
+    .dot{
+      width:18px;
+      height:18px;
+      border-radius:5px;
+      border:1px solid rgba(0,0,0,.08);
+      flex:0 0 auto;
+    }
+    .yellow{background:#ffd429}
+    .red{background:#ff6269}
+    .green{background:#4caf39}
+    .blue{background:#2d9bd3}
+    .purple{background:#9480dd}
+    .pink{background:#cf5ce6}
+    .orange{background:#f49a34}
+    .gray{background:#aaa}
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    @media (max-width:640px){
+      main{margin:36px auto;width:min(100% - 20px,920px)}
+      th,td{padding:13px 14px}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>光学论文 · 8 色标记规则</h1>
+      <p class="lead">用于阅读 optics / photonics / metasurface 等英文期刊论文。每种颜色固定一个含义，快速区分“结论、方法、公式、结果和与你课题的关系”。</p>
+    </header>
+
+    <div class="note">
+      <strong>怎么用：</strong>读论文时只按下面规则高亮。同一种信息始终使用同一种颜色，方便以后快速复习、做组会 PPT 和回查文献。
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>颜色</th>
+            <th>标记内容</th>
+            <th>读到这里时问自己</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="color"><span class="dot yellow"></span>黄色</span></td>
+            <td><strong>核心结论 / Take-home message</strong></td>
+            <td>这篇文章最后到底说明了什么？</td>
+          </tr>
+          <tr>
+            <td><span class="color"><span class="dot red"></span>红色</span></td>
+            <td><strong>问题 / 局限 / 质疑点</strong></td>
+            <td>这里有什么限制、漏洞或值得继续追问的地方？</td>
+          </tr>
+          <tr>
+            <td><span class="color"><span class="dot green"></span>绿色</span></td>
+            <td><strong>方法 / 核心思路 / 系统结构</strong></td>
+            <td>作者是怎么做到的？</td>
+          </tr>
+          <tr>
+            <td><span class="color"><span class="dot blue"></span>蓝色</span></td>
+            <td><strong>定义 / 概念 / 物理量含义</strong></td>
+            <td>这个概念、符号或物理量是什么意思？</td>
+          </tr>
+          <tr>
+            <td><span class="color"><span class="dot purple"></span>紫色</span></td>
+            <td><strong>关键公式 / 推导主线</strong></td>
+            <td>这篇文章的数学骨架在哪里？</td>
+          </tr>
+          <tr>
+            <td><span class="color"><span class="dot pink"></span>粉色</span></td>
+            <td><strong>实验结果 / 仿真结果 / 图表结论</strong></td>
+            <td>支持作者结论的证据在哪里？</td>
+          </tr>
+          <tr>
+            <td><span class="color"><span class="dot orange"></span>橙色</span></td>
+            <td><strong>与自己课题直接相关 / 可借鉴</strong></td>
+            <td>这部分对我的研究有什么用？</td>
+          </tr>
+          <tr>
+            <td><span class="color"><span class="dot gray"></span>灰色</span></td>
+            <td><strong>背景信息 / 常识铺垫 / 次重点</strong></td>
+            <td>这是帮助理解上下文、但不需要重点记忆的信息吗？</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>固定颜色，不随论文改变。重点不是“多画”，而是“画得准”。</footer>
+  </main>
+</body>
+</html>
