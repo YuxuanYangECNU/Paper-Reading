@@ -239,49 +239,49 @@
           <tr>
             <th>颜色</th>
             <th>固定含义</th>
-            <th>阅读时问自己</th>
+            <th>怎么判断</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><span class="color"><span class="dot red"></span>红色</span></td>
             <td><strong>Problem / Gap / Limitation</strong></td>
-            <td>为什么要做？现有方法哪里不够？还有什么问题没解决？</td>
+            <td>这句话是否指出“为什么现有方法不够”？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot yellow"></span>黄色</span></td>
             <td><strong>Novelty / Core Claim / Conclusion</strong></td>
-            <td>这篇真正新在哪里？作者由结果得出的核心结论 / capability claim 是什么？</td>
+            <td>这是不是“本文自己的新东西”或作者明确下的核心结论？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot green"></span>绿色</span></td>
             <td><strong>Function / Physical Mechanism / Core Method</strong></td>
-            <td>这个东西具体干什么？它如何工作？核心物理过程是什么？</td>
+            <td>这句话是否在回答“它具体做什么 / 为什么能工作”？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot blue"></span>蓝色</span></td>
             <td><strong>Implementation / System / Device</strong></td>
-            <td>客观上用了什么、搭了什么？器件、模块、光路、结构和参数是什么？</td>
+            <td>这句话是否在回答“系统里有什么 / 客观用了什么”？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot purple"></span>紫色</span></td>
             <td><strong>Theory / Equation / Model</strong></td>
-            <td>哪个数学关系支撑这个机制？数学骨架是什么？</td>
+            <td>这个公式 / 模型是不是“不懂就解释不清机制”的那一个？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot pink"></span>粉色</span></td>
             <td><strong>Result / Evidence / Performance</strong></td>
-            <td>具体实验 / 仿真得到了什么？有哪些定量性能、对比和实际能力？</td>
+            <td>这是不是实验 / 仿真“实际做到了什么”的证据？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot orange"></span>橙色</span></td>
             <td><strong>My Insight / Connection / Inspiration</strong></td>
-            <td>对我的课题、未来方向、写作或套磁有什么用？</td>
+            <td>这是作者的信息，还是“我自己的联想 / 可借鉴点”？后者才标橙。</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot gray"></span>灰色</span></td>
             <td><strong>Background / Related Work / Secondary Info</strong></td>
-            <td>这是帮助理解领域脉络、但不是本文核心的信息吗？</td>
+            <td>这是不是已有知识、前人工作或背景铺垫，而不是本文的新贡献？</td>
           </tr>
         </tbody>
       </table>
@@ -416,12 +416,16 @@
     </div>
 
     <div class="note">
-      <strong>最容易混淆的 4 种颜色：</strong>
-      <span class="inline-key"><span class="mini-dot blue"></span>蓝</span> = What it is / What is built；
-      <span class="inline-key"><span class="mini-dot green"></span>绿</span> = What it does / How it works；
-      <span class="inline-key"><span class="mini-dot pink"></span>粉</span> = What it achieves / Performance；
-      <span class="inline-key"><span class="mini-dot yellow"></span>黄</span> = What the authors conclude / Claim。
-      如果一句话同时包含“系统 + 功能 + 性能 + 结论”，可以拆开分段标色，不要整句只用一种颜色。
+      <strong>判断时只看这句话承担什么作用：</strong>
+      <span class="inline-key"><span class="mini-dot red"></span>红</span> 问题；
+      <span class="inline-key"><span class="mini-dot yellow"></span>黄</span> 本文的新东西 / 核心结论；
+      <span class="inline-key"><span class="mini-dot green"></span>绿</span> 功能 / 机制；
+      <span class="inline-key"><span class="mini-dot blue"></span>蓝</span> 系统 / 实现；
+      <span class="inline-key"><span class="mini-dot purple"></span>紫</span> 核心理论；
+      <span class="inline-key"><span class="mini-dot pink"></span>粉</span> 实际结果；
+      <span class="inline-key"><span class="mini-dot orange"></span>橙</span> 自己的启发；
+      <span class="inline-key"><span class="mini-dot gray"></span>灰</span> 背景 / 已有工作。
+      一句话有多个作用时，可以拆开标。
     </div>
 
     <div class="summary">
