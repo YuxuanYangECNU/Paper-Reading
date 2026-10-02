@@ -131,7 +131,17 @@
       padding:0;
       font-size:14px;
     }
-    .step li{margin:4px 0}
+    .step li{margin:5px 0}
+    .bullet-color{
+      display:inline-block;
+      width:10px;
+      height:10px;
+      border-radius:3px;
+      border:1px solid rgba(0,0,0,.08);
+      margin-right:7px;
+      vertical-align:middle;
+      transform:translateY(-1px);
+    }
     .tags{
       margin-top:10px;
       display:flex;
@@ -264,10 +274,10 @@
         </div>
         <p><strong>先建立全局认识，不碰细节。</strong></p>
         <ul>
-          <li>研究对象是什么？</li>
-          <li>为什么要做？现有方法有什么问题？</li>
-          <li>作者提出了什么新东西？</li>
-          <li>最后实现了什么结果？</li>
+          <li><span class="bullet-color red"></span><strong>红色</strong>：研究对象是什么？</li>
+          <li><span class="bullet-color red"></span><strong>红色</strong>：为什么要做？现有方法有什么问题？</li>
+          <li><span class="bullet-color yellow"></span><strong>黄色</strong>：作者提出了什么新东西？</li>
+          <li><span class="bullet-color pink"></span><strong>粉色</strong>：最后实现了什么结果？</li>
         </ul>
         <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot red"></span>Problem</span><span class="badge"><span class="mini-dot yellow"></span>Novelty</span><span class="badge"><span class="mini-dot pink"></span>Result</span><span class="badge"><span class="mini-dot orange"></span>Connection</span></div>
       </section>
@@ -279,11 +289,11 @@
         </div>
         <p><strong>先看图，建立整篇文章的物理图景和叙事结构。</strong></p>
         <ul>
-          <li>Input 是什么？</li>
-          <li>经过什么器件 / 系统 / 光学过程？</li>
-          <li>操控了哪些自由度：phase、polarization、wavelength、mode、k-space…？</li>
-          <li>Output 是什么？</li>
-          <li>每一张图分别想证明哪个 claim？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：Input 是什么？</li>
+          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：经过什么器件 / 系统 / 光学过程？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：操控了哪些自由度：phase、polarization、wavelength、mode、k-space…？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：Output 是什么？</li>
+          <li><span class="bullet-color pink"></span><strong>粉色</strong>：每一张图分别想证明哪个 claim？</li>
         </ul>
         <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot green"></span>Mechanism</span><span class="badge"><span class="mini-dot blue"></span>Implementation</span><span class="badge"><span class="mini-dot pink"></span>Evidence</span></div>
       </section>
@@ -295,10 +305,10 @@
         </div>
         <p><strong>不要逐句精读，重点找文章存在的理由。</strong></p>
         <ul>
-          <li>这个领域现在通常怎么做？</li>
-          <li>已有方法的关键 limitation 是什么？</li>
-          <li>作者为什么认为需要新的方案？</li>
-          <li>本文到底填补了哪个 gap？</li>
+          <li><span class="bullet-color gray"></span><strong>灰色</strong>：这个领域现在通常怎么做？</li>
+          <li><span class="bullet-color red"></span><strong>红色</strong>：已有方法的关键 limitation 是什么？</li>
+          <li><span class="bullet-color red"></span><strong>红色</strong>：作者为什么认为需要新的方案？</li>
+          <li><span class="bullet-color yellow"></span><strong>黄色</strong>：本文到底填补了哪个 gap？</li>
         </ul>
         <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot gray"></span>Background</span><span class="badge"><span class="mini-dot red"></span>Gap</span><span class="badge"><span class="mini-dot yellow"></span>Contribution</span></div>
       </section>
@@ -310,10 +320,10 @@
         </div>
         <p><strong>把物理过程压缩成：Input → Physical Mechanism → Output。</strong></p>
         <ul>
-          <li>核心自由度是什么？</li>
-          <li>系统对光场做了什么变换？</li>
-          <li>哪些量发生耦合、投影、干涉、传播或转换？</li>
-          <li>哪一个公式如果不懂，就解释不清这篇论文？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：核心自由度是什么？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：系统对光场做了什么变换？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：哪些量发生耦合、投影、干涉、传播或转换？</li>
+          <li><span class="bullet-color purple"></span><strong>紫色</strong>：哪一个公式如果不懂，就解释不清这篇论文？</li>
         </ul>
         <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot green"></span>Mechanism</span><span class="badge"><span class="mini-dot purple"></span>Theory</span><span class="badge"><span class="mini-dot blue"></span>Implementation</span></div>
       </section>
@@ -325,10 +335,10 @@
         </div>
         <p><strong>不要把 Methods 全部涂满。</strong></p>
         <ul>
-          <li>wavelength、NA、material、period、geometry</li>
-          <li>fabrication、optical setup、optimization / inverse design</li>
-          <li>measurement condition、重要实验参数</li>
-          <li>以后如果要复现、比较或引用，这个数据会不会再回来找？</li>
+          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：wavelength、NA、material、period、geometry</li>
+          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：fabrication、optical setup、optimization / inverse design</li>
+          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：measurement condition、重要实验参数</li>
+          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：以后如果要复现、比较或引用，这个数据会不会再回来找？</li>
         </ul>
         <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot blue"></span>Implementation</span></div>
       </section>
@@ -340,10 +350,10 @@
         </div>
         <p><strong>每张结果图都必须能回答：“它在证明什么？”</strong></p>
         <ul>
-          <li>核心 proof-of-concept 是哪一张？</li>
-          <li>效率、精度、串扰、带宽、通道数等性能如何？</li>
-          <li>simulation 和 experiment 是否一致？</li>
-          <li>有没有 trade-off、性能下降或作者没解决的问题？</li>
+          <li><span class="bullet-color pink"></span><strong>粉色</strong>：核心 proof-of-concept 是哪一张？</li>
+          <li><span class="bullet-color pink"></span><strong>粉色</strong>：效率、精度、串扰、带宽、通道数等性能如何？</li>
+          <li><span class="bullet-color pink"></span><strong>粉色</strong>：simulation 和 experiment 是否一致？</li>
+          <li><span class="bullet-color red"></span><strong>红色</strong>：有没有 trade-off、性能下降或作者没解决的问题？</li>
         </ul>
         <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot pink"></span>Evidence</span><span class="badge"><span class="mini-dot yellow"></span>Conclusion</span><span class="badge"><span class="mini-dot red"></span>Limitation</span></div>
       </section>
@@ -355,11 +365,11 @@
         </div>
         <p><strong>橙色不是作者的信息，而是“这篇论文对我有什么用”。</strong></p>
         <ul>
-          <li>能不能借鉴它的物理机制、实验结构或评价指标？</li>
-          <li>有没有适合自己论文的叙事方式或理论表达？</li>
-          <li>和自己的研究方向有什么直接联系？</li>
-          <li>如果调研导师：这篇工作和我的经历如何自然连接？</li>
-          <li>有没有新的研究问题或可延伸方向？</li>
+          <li><span class="bullet-color orange"></span><strong>橙色</strong>：能不能借鉴它的物理机制、实验结构或评价指标？</li>
+          <li><span class="bullet-color orange"></span><strong>橙色</strong>：有没有适合自己论文的叙事方式或理论表达？</li>
+          <li><span class="bullet-color orange"></span><strong>橙色</strong>：和自己的研究方向有什么直接联系？</li>
+          <li><span class="bullet-color orange"></span><strong>橙色</strong>：如果调研导师：这篇工作和我的经历如何自然连接？</li>
+          <li><span class="bullet-color orange"></span><strong>橙色</strong>：有没有新的研究问题或可延伸方向？</li>
         </ul>
         <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot orange"></span>Insight / Connection / Inspiration</span></div>
       </section>
