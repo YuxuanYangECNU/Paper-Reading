@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>光学论文 · 8 色标记规则</title>
-  <meta name="description" content="用于阅读 optics / photonics / metasurface 论文的固定 8 色高亮规则。" />
+  <title>光学论文 · 阅读工作流与 8 色标记</title>
+  <meta name="description" content="用于 optics / photonics / metasurface 论文阅读的固定 8 色标记规则与阅读工作流。" />
   <style>
     :root{
       --bg:#f7f8fa;
@@ -19,17 +19,22 @@
       background:var(--bg);
       color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
-      line-height:1.6;
+      line-height:1.65;
     }
     main{
-      width:min(920px,calc(100% - 32px));
-      margin:64px auto;
+      width:min(980px,calc(100% - 32px));
+      margin:56px auto;
     }
     header{margin-bottom:28px}
     h1{
       margin:0 0 10px;
       font-size:clamp(28px,4vw,40px);
       letter-spacing:-0.02em;
+    }
+    h2{
+      margin:36px 0 14px;
+      font-size:22px;
+      letter-spacing:-0.01em;
     }
     .lead{
       margin:0;
@@ -53,10 +58,10 @@
     table{
       width:100%;
       border-collapse:collapse;
-      min-width:680px;
+      min-width:760px;
     }
     th,td{
-      padding:16px 18px;
+      padding:15px 18px;
       text-align:left;
       vertical-align:middle;
       border-bottom:1px solid var(--line);
@@ -91,83 +96,257 @@
     .pink{background:#cf5ce6}
     .orange{background:#f49a34}
     .gray{background:#aaa}
+    .workflow{
+      display:grid;
+      gap:12px;
+    }
+    .step{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px 18px;
+    }
+    .step-head{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .step-num{
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.04em;
+    }
+    .step-title{
+      font-weight:700;
+      font-size:17px;
+    }
+    .step p{
+      margin:6px 0;
+      font-size:14px;
+    }
+    .step ul{
+      margin:8px 0 0 19px;
+      padding:0;
+      font-size:14px;
+    }
+    .step li{margin:4px 0}
+    .tags{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .summary{
+      margin-top:16px;
+      padding:16px 18px;
+      background:#111318;
+      color:#fff;
+      border-radius:14px;
+      font-size:14px;
+      line-height:1.8;
+    }
+    .summary strong{color:#fff}
     footer{
-      margin-top:18px;
+      margin-top:22px;
       color:var(--muted);
       font-size:13px;
     }
     @media (max-width:640px){
-      main{margin:36px auto;width:min(100% - 20px,920px)}
+      main{margin:36px auto;width:min(100% - 20px,980px)}
       th,td{padding:13px 14px}
+      .step{padding:14px}
     }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <h1>光学论文 · 8 色标记规则</h1>
-      <p class="lead">用于阅读 optics / photonics / metasurface 等英文期刊论文。每种颜色固定一个含义，快速区分“结论、方法、公式、结果和与你课题的关系”。</p>
+      <h1>光学论文 · 阅读工作流与 8 色标记</h1>
+      <p class="lead">用于 optics / photonics / metasurface 等英文论文。颜色按“信息类型”固定，阅读顺序按“先全局、再原理、后细节”执行。</p>
     </header>
 
     <div class="note">
-      <strong>怎么用：</strong>读论文时只按下面规则高亮。同一种信息始终使用同一种颜色，方便以后快速复习、做组会 PPT 和回查文献。
+      <strong>原则：</strong>颜色不要随论文改变；不要见到关键词就画，而要判断这句话在整篇论文中承担什么作用。目标不是“画得多”，而是以后翻开 PDF，几分钟内恢复整篇论文的逻辑。
     </div>
 
+    <h2>8 色固定含义</h2>
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th>颜色</th>
-            <th>标记内容</th>
-            <th>读到这里时问自己</th>
+            <th>固定含义</th>
+            <th>阅读时问自己</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><span class="color"><span class="dot yellow"></span>黄色</span></td>
-            <td><strong>核心结论 / Take-home message</strong></td>
-            <td>这篇文章最后到底说明了什么？</td>
+            <td><span class="color"><span class="dot red"></span>红色</span></td>
+            <td><strong>Problem / Gap / Limitation</strong></td>
+            <td>为什么要做？现有方法哪里不够？还有什么问题没解决？</td>
           </tr>
           <tr>
-            <td><span class="color"><span class="dot red"></span>红色</span></td>
-            <td><strong>问题 / 局限 / 质疑点</strong></td>
-            <td>这里有什么限制、漏洞或值得继续追问的地方？</td>
+            <td><span class="color"><span class="dot yellow"></span>黄色</span></td>
+            <td><strong>Novelty / Core Claim / Contribution</strong></td>
+            <td>这篇真正新在哪里？作者最想让我记住什么？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot green"></span>绿色</span></td>
-            <td><strong>方法 / 核心思路 / 系统结构</strong></td>
-            <td>作者是怎么做到的？</td>
+            <td><strong>Physical Mechanism / Core Method</strong></td>
+            <td>它为什么能工作？核心物理过程是什么？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot blue"></span>蓝色</span></td>
-            <td><strong>定义 / 概念 / 物理量含义</strong></td>
-            <td>这个概念、符号或物理量是什么意思？</td>
+            <td><strong>Implementation / System / Device</strong></td>
+            <td>具体怎么实现？器件、光路、结构、参数是什么？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot purple"></span>紫色</span></td>
-            <td><strong>关键公式 / 推导主线</strong></td>
-            <td>这篇文章的数学骨架在哪里？</td>
+            <td><strong>Theory / Equation / Model</strong></td>
+            <td>哪个数学关系支撑这个机制？数学骨架是什么？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot pink"></span>粉色</span></td>
-            <td><strong>实验结果 / 仿真结果 / 图表结论</strong></td>
-            <td>支持作者结论的证据在哪里？</td>
+            <td><strong>Result / Evidence / Performance</strong></td>
+            <td>作者拿什么证明？性能有多好？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot orange"></span>橙色</span></td>
-            <td><strong>与自己课题直接相关 / 可借鉴</strong></td>
-            <td>这部分对我的研究有什么用？</td>
+            <td><strong>My Insight / Connection / Inspiration</strong></td>
+            <td>对我的课题、未来方向、写作或套磁有什么用？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot gray"></span>灰色</span></td>
-            <td><strong>背景信息 / 常识铺垫 / 次重点</strong></td>
-            <td>这是帮助理解上下文、但不需要重点记忆的信息吗？</td>
+            <td><strong>Background / Related Work / Secondary Info</strong></td>
+            <td>这是帮助理解领域脉络、但不是本文核心的信息吗？</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <footer>固定颜色，不随论文改变。重点不是“多画”，而是“画得准”。</footer>
+    <h2>面对一篇新论文：固定工作流</h2>
+
+    <div class="workflow">
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">STEP 1</span>
+          <span class="step-title">Title → Abstract → Conclusion</span>
+        </div>
+        <p><strong>先建立全局认识，不碰细节。</strong></p>
+        <ul>
+          <li>研究对象是什么？</li>
+          <li>为什么要做？现有方法有什么问题？</li>
+          <li>作者提出了什么新东西？</li>
+          <li>最后实现了什么结果？</li>
+        </ul>
+        <div class="tags">优先标记：红色 Problem · 黄色 Novelty · 粉色 Result · 橙色 Connection</div>
+      </section>
+
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">STEP 2</span>
+          <span class="step-title">Figure 1 → 快速扫所有 Figures</span>
+        </div>
+        <p><strong>先看图，建立整篇文章的物理图景和叙事结构。</strong></p>
+        <ul>
+          <li>Input 是什么？</li>
+          <li>经过什么器件 / 系统 / 光学过程？</li>
+          <li>操控了哪些自由度：phase、polarization、wavelength、mode、k-space…？</li>
+          <li>Output 是什么？</li>
+          <li>每一张图分别想证明哪个 claim？</li>
+        </ul>
+        <div class="tags">优先标记：绿色 Mechanism · 蓝色 Implementation · 粉色 Evidence</div>
+      </section>
+
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">STEP 3</span>
+          <span class="step-title">Introduction：Existing Field → Gap → This Work</span>
+        </div>
+        <p><strong>不要逐句精读，重点找文章存在的理由。</strong></p>
+        <ul>
+          <li>这个领域现在通常怎么做？</li>
+          <li>已有方法的关键 limitation 是什么？</li>
+          <li>作者为什么认为需要新的方案？</li>
+          <li>本文到底填补了哪个 gap？</li>
+        </ul>
+        <div class="tags">优先标记：灰色 Background · 红色 Gap · 黄色 Contribution</div>
+      </section>
+
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">STEP 4</span>
+          <span class="step-title">Principle / Theory：真正搞懂“为什么能工作”</span>
+        </div>
+        <p><strong>把物理过程压缩成：Input → Physical Mechanism → Output。</strong></p>
+        <ul>
+          <li>核心自由度是什么？</li>
+          <li>系统对光场做了什么变换？</li>
+          <li>哪些量发生耦合、投影、干涉、传播或转换？</li>
+          <li>哪一个公式如果不懂，就解释不清这篇论文？</li>
+        </ul>
+        <div class="tags">优先标记：绿色 Mechanism · 紫色 Theory · 蓝色关键定义/实现</div>
+      </section>
+
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">STEP 5</span>
+          <span class="step-title">Device / Methods：只记值得以后回查的细节</span>
+        </div>
+        <p><strong>不要把 Methods 全部涂满。</strong></p>
+        <ul>
+          <li>wavelength、NA、material、period、geometry</li>
+          <li>fabrication、optical setup、optimization / inverse design</li>
+          <li>measurement condition、重要实验参数</li>
+          <li>以后如果要复现、比较或引用，这个数据会不会再回来找？</li>
+        </ul>
+        <div class="tags">优先标记：蓝色 Implementation</div>
+      </section>
+
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">STEP 6</span>
+          <span class="step-title">Results：建立 Claim ↔ Evidence</span>
+        </div>
+        <p><strong>每张结果图都必须能回答：“它在证明什么？”</strong></p>
+        <ul>
+          <li>核心 proof-of-concept 是哪一张？</li>
+          <li>效率、精度、串扰、带宽、通道数等性能如何？</li>
+          <li>simulation 和 experiment 是否一致？</li>
+          <li>有没有 trade-off、性能下降或作者没解决的问题？</li>
+        </ul>
+        <div class="tags">优先标记：粉色 Evidence · 黄色 Conclusion · 红色 Limitation</div>
+      </section>
+
+      <section class="step">
+        <div class="step-head">
+          <span class="step-num">STEP 7</span>
+          <span class="step-title">最后只看橙色：把论文变成自己的东西</span>
+        </div>
+        <p><strong>橙色不是作者的信息，而是“这篇论文对我有什么用”。</strong></p>
+        <ul>
+          <li>能不能借鉴它的物理机制、实验结构或评价指标？</li>
+          <li>有没有适合自己论文的叙事方式或理论表达？</li>
+          <li>和自己的研究方向有什么直接联系？</li>
+          <li>如果调研导师：这篇工作和我的经历如何自然连接？</li>
+          <li>有没有新的研究问题或可延伸方向？</li>
+        </ul>
+        <div class="tags">优先标记：橙色 Insight / Connection / Inspiration</div>
+      </section>
+    </div>
+
+    <div class="summary">
+      <strong>读完一篇论文，至少留下 6 个答案：</strong><br>
+      1. Why：为什么要做？<br>
+      2. What：真正的新东西是什么？<br>
+      3. How：核心物理机制是什么？<br>
+      4. Evidence：作者如何证明？<br>
+      5. Limitation：还有什么问题？<br>
+      6. Connection：这篇论文对我有什么用？
+    </div>
+
+    <footer>建议长期固定：红 = 问题，黄 = 创新，绿 = 原理，蓝 = 实现，紫 = 理论，粉 = 结果，橙 = 自己的启发，灰 = 背景。</footer>
   </main>
 </body>
 </html>
