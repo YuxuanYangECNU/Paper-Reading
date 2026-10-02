@@ -255,13 +255,13 @@
           </tr>
           <tr>
             <td><span class="color"><span class="dot green"></span>绿色</span></td>
-            <td><strong>Physical Mechanism / Core Method</strong></td>
-            <td>它为什么能工作？核心物理过程是什么？</td>
+            <td><strong>Function / Physical Mechanism / Core Method</strong></td>
+            <td>这个东西具体干什么？它如何工作？核心物理过程是什么？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot blue"></span>蓝色</span></td>
             <td><strong>Implementation / System / Device</strong></td>
-            <td>具体怎么实现？器件、光路、结构、参数是什么？</td>
+            <td>客观上用了什么、搭了什么？器件、模块、光路、结构和参数是什么？</td>
           </tr>
           <tr>
             <td><span class="color"><span class="dot purple"></span>紫色</span></td>
@@ -287,6 +287,16 @@
       </table>
     </div>
 
+    <h2>不同部分的主色</h2>
+    <div class="note">
+      <strong>快速记忆：</strong>
+      Abstract：<span class="inline-key"><span class="mini-dot red"></span>红</span> + <span class="inline-key"><span class="mini-dot yellow"></span>黄</span> + <span class="inline-key"><span class="mini-dot blue"></span>蓝</span> + <span class="inline-key"><span class="mini-dot pink"></span>粉</span>；
+      原理 / 主图：<span class="inline-key"><span class="mini-dot blue"></span>蓝</span> + <span class="inline-key"><span class="mini-dot green"></span>绿</span>；
+      理论：<span class="inline-key"><span class="mini-dot green"></span>绿</span> + <span class="inline-key"><span class="mini-dot purple"></span>紫</span>；
+      实验结果：<span class="inline-key"><span class="mini-dot pink"></span>粉</span> + <span class="inline-key"><span class="mini-dot yellow"></span>黄</span>。
+      <span class="inline-key"><span class="mini-dot red"></span>红</span>用于问题 / 局限，<span class="inline-key"><span class="mini-dot orange"></span>橙</span>用于自己的启发，随时出现。
+    </div>
+
     <h2>面对一篇新论文：固定工作流</h2>
 
     <div class="workflow">
@@ -310,17 +320,18 @@
       <section class="step">
         <div class="step-head">
           <span class="step-num">STEP 2</span>
-          <span class="step-title">Figure 1 → 快速扫所有 Figures</span>
+          <span class="step-title">Figure 1 / Concept Figure → 快速扫所有 Figures</span>
         </div>
-        <p><strong>先看图，建立整篇文章的物理图景和叙事结构。</strong></p>
+        <p><strong>先看图建立物理图景。主要在 caption 上标记，图本身只做极少量注释。</strong></p>
         <ul>
-          <li><span class="bullet-color green"></span><strong>绿色</strong>：Input 是什么？</li>
-          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：经过什么器件 / 系统 / 光学过程？</li>
-          <li><span class="bullet-color green"></span><strong>绿色</strong>：操控了哪些自由度：phase、polarization、wavelength、mode、k-space…？</li>
-          <li><span class="bullet-color green"></span><strong>绿色</strong>：Output 是什么？</li>
-          <li><span class="bullet-color pink"></span><strong>粉色</strong>：每一张图分别想证明哪个 claim？</li>
+          <li>先不标色：确认 Input → System / Device → Output，以及每个 panel 分别在讲什么。</li>
+          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：客观上“有什么 / 用了什么”——器件、模块、网络、光路、结构、组件。</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：这些东西“干什么 / 怎么工作”——提取、调制、衍射、投影、耦合、融合、转换等功能与物理过程。</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：核心操控自由度与机制——phase、polarization、wavelength、mode、k-space 等如何被利用。</li>
+          <li><span class="bullet-color pink"></span><strong>粉色</strong>：如果 caption 已经给出实验结果、性能或某张图证明的 evidence，再标粉色。</li>
         </ul>
-        <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot green"></span>Mechanism</span><span class="badge"><span class="mini-dot blue"></span>Implementation</span><span class="badge"><span class="mini-dot pink"></span>Evidence</span></div>
+        <div class="tags"><span class="tag-label">主色：</span><span class="badge"><span class="mini-dot blue"></span>What is built / used</span><span class="badge"><span class="mini-dot green"></span>What it does / How it works</span><span class="badge"><span class="mini-dot pink"></span>Result（按需）</span></div>
+        <p class="abstract-note"><strong>Figure 标记原则：</strong>原理展示和主图概念图通常以 <span class="inline-key"><span class="mini-dot blue"></span>蓝色</span> + <span class="inline-key"><span class="mini-dot green"></span>绿色</span> 为主。蓝色回答“系统里有什么”，绿色回答“它有什么作用、为什么能工作”。</p>
       </section>
 
       <section class="step">
@@ -343,14 +354,15 @@
           <span class="step-num">STEP 4</span>
           <span class="step-title">Principle / Theory：真正搞懂“为什么能工作”</span>
         </div>
-        <p><strong>把物理过程压缩成：Input → Physical Mechanism → Output。</strong></p>
+        <p><strong>把物理过程压缩成：Input → System → Physical Mechanism → Output。</strong></p>
         <ul>
-          <li><span class="bullet-color green"></span><strong>绿色</strong>：核心自由度是什么？</li>
-          <li><span class="bullet-color green"></span><strong>绿色</strong>：系统对光场做了什么变换？</li>
-          <li><span class="bullet-color green"></span><strong>绿色</strong>：哪些量发生耦合、投影、干涉、传播或转换？</li>
-          <li><span class="bullet-color purple"></span><strong>紫色</strong>：哪一个公式如果不懂，就解释不清这篇论文？</li>
+          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：参与原理的关键模块 / 器件是什么？它们如何连接？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：每个模块具体做什么？系统对光场做了什么变换？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：哪些量发生耦合、投影、干涉、传播、调制或转换？</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：核心自由度是什么？为什么利用这些自由度就能实现目标功能？</li>
+          <li><span class="bullet-color purple"></span><strong>紫色</strong>：哪一个公式 / 模型如果不懂，就解释不清这个机制？</li>
         </ul>
-        <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot green"></span>Mechanism</span><span class="badge"><span class="mini-dot purple"></span>Theory</span><span class="badge"><span class="mini-dot blue"></span>Implementation</span></div>
+        <div class="tags"><span class="tag-label">主色：</span><span class="badge"><span class="mini-dot blue"></span>System</span><span class="badge"><span class="mini-dot green"></span>Mechanism</span><span class="badge"><span class="mini-dot purple"></span>Theory</span></div>
       </section>
 
       <section class="step">
@@ -373,14 +385,17 @@
           <span class="step-num">STEP 6</span>
           <span class="step-title">Results：建立 Claim ↔ Evidence</span>
         </div>
-        <p><strong>每张结果图都必须能回答：“它在证明什么？”</strong></p>
+        <p><strong>结果部分以粉色 + 黄色为主：先找证据，再找作者由证据得到的结论。</strong></p>
         <ul>
-          <li><span class="bullet-color pink"></span><strong>粉色</strong>：核心 proof-of-concept 是哪一张？</li>
-          <li><span class="bullet-color pink"></span><strong>粉色</strong>：效率、精度、串扰、带宽、通道数等性能如何？</li>
-          <li><span class="bullet-color pink"></span><strong>粉色</strong>：simulation 和 experiment 是否一致？</li>
-          <li><span class="bullet-color red"></span><strong>红色</strong>：有没有 trade-off、性能下降或作者没解决的问题？</li>
+          <li><span class="bullet-color pink"></span><strong>粉色</strong>：实验 / 仿真具体得到了什么？核心 proof-of-concept、曲线、图像和定量数据是什么？</li>
+          <li><span class="bullet-color pink"></span><strong>粉色</strong>：效率、精度、串扰、带宽、通道数、速度、能耗等性能做到什么程度？</li>
+          <li><span class="bullet-color yellow"></span><strong>黄色</strong>：这些结果支持了作者哪个核心 claim / conclusion？</li>
+          <li><span class="bullet-color red"></span><strong>红色</strong>：有没有性能下降、trade-off、异常、局限或尚未解决的问题？</li>
+          <li><span class="bullet-color blue"></span><strong>蓝色</strong>：只有当测试条件 / 实验设置对理解结果很重要时，标关键条件和参数。</li>
+          <li><span class="bullet-color green"></span><strong>绿色</strong>：如果作者解释“为什么会出现这个结果”，把背后的物理机制标成绿色。</li>
         </ul>
-        <div class="tags"><span class="tag-label">优先标记：</span><span class="badge"><span class="mini-dot pink"></span>Evidence</span><span class="badge"><span class="mini-dot yellow"></span>Conclusion</span><span class="badge"><span class="mini-dot red"></span>Limitation</span></div>
+        <div class="tags"><span class="tag-label">主色：</span><span class="badge"><span class="mini-dot pink"></span>Evidence / Performance</span><span class="badge"><span class="mini-dot yellow"></span>Claim / Conclusion</span><span class="badge"><span class="mini-dot red"></span>Limitation（按需）</span></div>
+        <p class="abstract-note"><strong>Results 标记原则：</strong><span class="inline-key"><span class="mini-dot pink"></span>粉色</span>回答“数据是什么”，<span class="inline-key"><span class="mini-dot yellow"></span>黄色</span>回答“数据说明了什么”；<span class="inline-key"><span class="mini-dot red"></span>红色</span>找问题，<span class="inline-key"><span class="mini-dot green"></span>绿色</span>只用于结果背后的机制解释。</p>
       </section>
 
       <section class="step">
